@@ -3,7 +3,11 @@ mindaffectBCI
 This repository contains the python SDK code for the Brain Computer Interface (BCI) developed by the company `Mindaffect <https://mindaffect.nl>`_.
 
 When installed, with the right hardware you can do things like shown `here <https://youtu.be/MVuQzaqDkKI>`_
+<<<<<<< HEAD
+Test van freek
+=======
 test
+>>>>>>> 6e7a538c8ab8985a0ff62de6c00228182cf383ea
 
 Online Documentation and Tutorials
 ----------------------------------
@@ -38,7 +42,7 @@ Try the off-line analysis on-line on binder.
 
 Try off-line multiple datasets analysis on `kaggle <https://www.kaggle.com/mindaffect/mindaffectbci>`_ 
 
-
+To be able to use Data Version Control, you need to install DVC locally. This can be done using the `link <https://dvc.org/doc/install>`_
 
 Installation Test
 -----------------

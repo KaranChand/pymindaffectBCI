@@ -1,0 +1,12 @@
+schema: '2.0'
+stages:
+  pipeline:
+    cmd: python FH_Pipeline2.py
+    deps:
+    - path: FH_Pipeline2.py
+      md5: 5a721f26d79d16149cfe07ed93b355f8
+      size: 882
+    outs:
+    - path: metrics.txt
+      md5: 921a78aaa7d913e7f4c1602f15d319e9
+      size: 639

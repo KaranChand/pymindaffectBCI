@@ -1,0 +1,21 @@
+stages:
+  pipeline:
+    cmd: python FH_Pipeline2.py
+    deps:
+    - FH_Pipeline2.py
+    metrics:
+    - metrics.txt: #might need to use .json
+        cache: false
+
+
+# template for adding more stages in the pipeline (instead of 1 python file)
+# name:
+#   cmd: python process.py
+#   deps:
+#   - process.py
+#   - input_data.csv
+#   outs:
+#   - output_data.csv
+#   metrics:
+#   - metrics.json
+#       cache: false #idk why
