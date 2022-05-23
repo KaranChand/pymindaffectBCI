@@ -1,10 +1,11 @@
+---
 stages:
   pipeline:
     cmd: python FH_Pipeline2.py
     deps:
-    - FH_Pipeline2.py
+      - FH_Pipeline2.py
     metrics:
-    - metrics.txt: #might need to use .json
+      - metrics.txt: #might need to use .json
         cache: false
 
 
@@ -22,6 +23,6 @@ stages:
   karan:
     cmd: pyton FH_Pipeline2.py
     deps:
-    - FH_Pipeline2.py
+      - FH_Pipeline2.py
     outs:
-    - metricskaran.txt
+      - metricskaran.txt
