@@ -16,14 +16,13 @@ jobs:
           
           git fetch --prune
           
-          dvc metrics diff --show-md master > report.md
+          dvc metrics diff --show-md mlops > report.md
           
           echo "## Model Metrics" > report.md
           cat metrics.txt >> report.md
           
           echo "\n## Model Performance" >> report.md
           echo "Model performance metrics are on the plot below." >> report.md
-          
-          cml-publish mindaffectBCI_decoding_curve.png --md >> report.md
+
           
           cml-send-comment report.md
