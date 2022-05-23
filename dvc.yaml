@@ -19,3 +19,9 @@ stages:
 #   metrics:
 #   - metrics.json
 #       cache: false #idk why
+  karan:
+    cmd: pyton FH_Pipeline2.py
+    deps:
+    - FH_Pipeline2.py
+    outs:
+    - metricskaran.txt

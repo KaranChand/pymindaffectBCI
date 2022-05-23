@@ -20,3 +20,4 @@ __pycache__
 description.xml
 calibration_data*
 *.egg-info
+/metricskaran.txt
