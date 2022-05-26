@@ -34,6 +34,7 @@ from mindaffectBCI.decoder.trigger_check import triggerPlot
 import matplotlib.pyplot as plt
 import gc
 import re
+import csv
 
 def analyse_dataset(X:np.ndarray, Y:np.ndarray, coords, outfile, model:str='cca', test_idx=None, cv=True, tau_ms:float=300, fs:float=None,  rank:int=1, evtlabs=None, offset_ms=0, center=True, tuned_parameters=None, ranks=None, retrain_on_all=True, **kwargs):
     """ cross-validated training on a single datasets and decoing curve estimation
@@ -227,7 +228,12 @@ def analyse_datasets(dataset:str, model:str='cca', dataset_args:dict=None, loade
         outfile.write("Ave-DC\n{}\n".format(print_decoding_curve(np.nanmean(int_len,0),np.nanmean(prob_err,0),np.nanmean(prob_err_est,0),np.nanmean(se,0),np.nanmean(st,0))))
     # Save to a CSV file
     data_int = np.array([np.nanmean(int_len,0),np.nanmean(prob_err,0),np.nanmean(prob_err_est,0),np.nanmean(se,0),np.nanmean(st,0)]).transpose()                                                    
-    np.savetxt('metrics.csv',data_int)
+    
+
+    with open('metrics.csv', 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(['int_len', 'prob_err', 'prob_err_est', 'se', 'st'])
+        writer.writerows(data_int)
 
 def analyse_train_test(X:np.ndarray, Y:np.ndarray, coords, splits=1, label:str='', model:str='cca', tau_ms:float=300, fs:float=None,  rank:int=1, evtlabs=None, preprocess_args=None, clsfr_args:dict=None,  **kwargs):    
     """analyse effect of different train/test splits on performance and generate a summary decoding plot.
