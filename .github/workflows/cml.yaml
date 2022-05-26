@@ -1,3 +1,4 @@
+---
 name: mlops-exaple-tensorflow-regression
 on: [push]
 jobs:
@@ -13,9 +14,13 @@ jobs:
           # Your ML workflow goes here
           pip install -r requirements.txt
           python FH_Pipeline2.py
+          # python txt2json.py
           
-          echo "## Model Metrics" > report.md
+          echo "## Model Metrics txt" > report.md
           cat metrics.txt >> report.md
+          
+          echo "\n## Model Metrics json" > report.md
+          cat metrics.json >> report.md
           
           echo "\n## Model Performance" >> report.md
           echo "Model performance metrics are on the plot below." >> report.md
