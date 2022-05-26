@@ -225,6 +225,9 @@ def analyse_datasets(dataset:str, model:str='cca', dataset_args:dict=None, loade
     with open('metrics.txt', 'a') as outfile:
         outfile.write("\n--------\n\n Ave-score={}\n".format(avescore))
         outfile.write("Ave-DC\n{}\n".format(print_decoding_curve(np.nanmean(int_len,0),np.nanmean(prob_err,0),np.nanmean(prob_err_est,0),np.nanmean(se,0),np.nanmean(st,0))))
+    # Save to a CSV file
+    data_int = np.array([np.nanmean(int_len,0),np.nanmean(prob_err,0),np.nanmean(prob_err_est,0),np.nanmean(se,0),np.nanmean(st,0)]).transpose()                                                    
+    np.savetxt('metrics.csv',data_int)
 
 def analyse_train_test(X:np.ndarray, Y:np.ndarray, coords, splits=1, label:str='', model:str='cca', tau_ms:float=300, fs:float=None,  rank:int=1, evtlabs=None, preprocess_args=None, clsfr_args:dict=None,  **kwargs):    
     """analyse effect of different train/test splits on performance and generate a summary decoding plot.
